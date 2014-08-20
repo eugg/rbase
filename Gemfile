@@ -12,10 +12,14 @@ group :test, :development do
   gem "quiet_assets"
   gem "ffaker"
   gem "rubocop", require: false
+  gem "simplecov", require: false
 end
 
+gem "unicorn"
+gem "pry-rails"
+gem "awesome_print", require: false
 gem "omniauth-facebook"
-gem "omniauth-gplus"
+gem "omniauth-google-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
 gem "activeadmin-dragonfly", github: "stefanoverna/activeadmin-dragonfly"
 gem "activeadmin-wysihtml5", github: "stefanoverna/activeadmin-wysihtml5"
@@ -35,3 +39,5 @@ gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "aasm"
 gem "sdoc", "~> 0.4.0",          group: :doc
+
+gem 'rails_12factor', group: :production
