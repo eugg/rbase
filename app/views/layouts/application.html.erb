@@ -8,7 +8,14 @@
 </head>
 <body>
   <div class="container">
-    <%= current_user.email %>
+    
+    <% if current_user %>
+      <%= link_to "登出", sign_out_path  %>
+      <%= current_user.email %>
+    <% else %>
+      <%= link_to "登入", new_user_session_path %>
+    <% end %>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

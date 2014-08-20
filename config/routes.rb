@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   resources :posts
 
   root "posts#index"
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy', :as => :sign_out
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

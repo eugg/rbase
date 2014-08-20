@@ -15,5 +15,4 @@
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
-<%= current_user.email %>
 <%= render "devise/shared/links" %>
