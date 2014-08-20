@@ -282,6 +282,8 @@ zh-TW:
       job_info: "職缺資訊"
       apply_info: "應徵資訊"
       post_info: "張貼資訊"
+    posts:
+      sample: "文章"
     devise:
       login:
         title: "登錄"
