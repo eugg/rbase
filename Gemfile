@@ -15,18 +15,19 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
-gem 'active_admin_editor'
 gem "unicorn"
 gem "pry-rails"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
+gem "active_admin_editor"
+gem "active_skin"
 gem "pundit"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "devise"
 gem "pg"
-gem "paranoia", :github => "radar/paranoia", :branch => "rails4"
+gem "paranoia", github: "radar/paranoia", branch: "rails4"
 gem "kaminari"
 gem "meta-tags"
 gem "sass-rails", "~> 4.0.3"
@@ -39,4 +40,4 @@ gem "jbuilder", "~> 2.0"
 gem "aasm"
 gem "sdoc", "~> 0.4.0",          group: :doc
 
-gem 'rails_12factor', group: :production
+gem "rails_12factor", group: :production
