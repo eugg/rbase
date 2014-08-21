@@ -15,14 +15,13 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
+gem 'active_admin_editor'
 gem "unicorn"
 gem "pry-rails"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
-gem "activeadmin-dragonfly", github: "stefanoverna/activeadmin-dragonfly"
-gem "activeadmin-wysihtml5", github: "stefanoverna/activeadmin-wysihtml5"
 gem "pundit"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "devise"

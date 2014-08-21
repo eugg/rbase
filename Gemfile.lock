@@ -35,23 +35,6 @@ GIT
     paranoia (2.0.2)
       activerecord (~> 4.0)
 
-GIT
-  remote: git://github.com/stefanoverna/activeadmin-dragonfly.git
-  revision: 89a47f9124b1c4ee4ae79f6c32aa999d2566c5d1
-  specs:
-    activeadmin-dragonfly (0.0.2)
-      activeadmin
-      dragonfly (= 0.9.15)
-      rack-cache
-
-GIT
-  remote: git://github.com/stefanoverna/activeadmin-wysihtml5.git
-  revision: c499bc7ee00b8c31667a7da4a210d531463c530e
-  specs:
-    activeadmin-wysihtml5 (1.0.0)
-      activeadmin
-      activeadmin-dragonfly
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -69,6 +52,26 @@ GEM
       activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_admin_editor (1.1.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      activeadmin (>= 0.4.0)
+      ejs
+      rails (>= 3.0.0)
     activemodel (4.1.4)
       activesupport (= 4.1.4)
       builder (~> 3.1)
@@ -111,9 +114,7 @@ GEM
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
     docile (1.1.5)
-    dragonfly (0.9.15)
-      multi_json (~> 1.0)
-      rack
+    ejs (1.1.1)
     erubis (2.7.0)
     execjs (2.2.1)
     factory_girl (4.4.0)
@@ -199,8 +200,6 @@ GEM
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
-    rack-cache (1.2)
-      rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.4)
@@ -306,9 +305,8 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  active_admin_editor
   activeadmin!
-  activeadmin-dragonfly!
-  activeadmin-wysihtml5!
   awesome_print
   bootstrap-sass (~> 3.2.0)
   coffee-rails (~> 4.0.0)
