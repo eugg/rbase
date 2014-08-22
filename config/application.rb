@@ -5,9 +5,7 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-ENV["AWS_BUCKET"] || "123"
-ENV["AWS_ACCESS_KEY_ID"] || "234"
-ENV["AWS_SECRET_ACCESS_KEY"] || "345"
+
 module RailsBase
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
