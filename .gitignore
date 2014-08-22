@@ -19,5 +19,3 @@
 .pryrc
 .irbrc
 bfg.jar
-
-config/secrets.yml

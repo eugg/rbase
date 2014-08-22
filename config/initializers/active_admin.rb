@@ -1,7 +1,4 @@
 ActiveAdmin.setup do |config|
-  config.editor.s3_bucket = ENV["AWS_BUCKET"]
-  config.editor.aws_access_key_id = ENV["AWS_ACCESS_KEY_ID"]
-  config.editor.aws_access_secret = ENV["AWS_SECRET_ACCESS_KEY"]
   # == Site Title
   #
   # Set the title that is displayed on the main layout
