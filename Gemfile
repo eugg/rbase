@@ -15,6 +15,9 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
+gem 'redactor-rails'
+gem "carrierwave"
+gem "mini_magick"
 gem "unicorn"
 gem "pry-rails"
 gem "awesome_print", require: false
