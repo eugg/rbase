@@ -15,6 +15,7 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
+gem "babosa"
 gem "fog"
 gem 'redactor-rails'
 gem "carrierwave"

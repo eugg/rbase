@@ -71,6 +71,7 @@ GEM
     arel (5.0.1.20140414130214)
     ast (2.0.0)
     awesome_print (1.2.0)
+    babosa (0.3.11)
     bcrypt (3.1.7)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
@@ -333,6 +334,7 @@ DEPENDENCIES
   active_skin
   activeadmin!
   awesome_print
+  babosa
   bootstrap-sass (~> 3.2.0)
   carrierwave
   coffee-rails (~> 4.0.0)

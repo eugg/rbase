@@ -3,7 +3,7 @@ class RedactorRailsDocumentUploader < CarrierWave::Uploader::Base
   include RedactorRails::Backend::CarrierWave
 
   # storage :fog
-  storage :file
+  storage :fog
 
   def store_dir
     "system/redactor_assets/documents/#{model.id}"
