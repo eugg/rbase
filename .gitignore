@@ -19,3 +19,5 @@
 .pryrc
 .irbrc
 bfg.jar
+
+config/initializers/local_key.rb

@@ -5,7 +5,7 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs t("active_admin.posts.sample") do
       f.input :title
-      f.input :content, as: :html_editor
+      f.input :content, input_html: { class: "redactor", rows: 40, cols: 40 }
     end
     f.actions
   end

@@ -4,4 +4,8 @@ class RedactorRails::Picture < RedactorRails::Asset
   def url_content
     url(:content)
   end
+
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 end
