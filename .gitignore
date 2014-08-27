@@ -15,6 +15,7 @@
 /log/*.log
 /tmp
 /public/system
+/public/assets
 /coverage
 .pryrc
 .irbrc
