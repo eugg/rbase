@@ -25,7 +25,6 @@ gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
-gem "active_admin_editor"
 gem "active_skin"
 gem "pundit"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
