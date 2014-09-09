@@ -31,7 +31,6 @@ class User < ActiveRecord::Base
         email: data["email"],
         password: Devise.friendly_token[0, 20]
       )
-      user.create_google_user_info(data)
     end
     user
   end
@@ -48,8 +47,9 @@ class User < ActiveRecord::Base
 
   def create_google_user_info(data)
     hash = {}
-    hash["username"] = data.name
-    hash["avatar"] = data.image
+    hash["username"] = data.info.name
+    hash["gender"] = data.extra.raw_info.gender
+    hash["avatar"] = data.info.image
     self.create_user_info(hash)
   end
 end
