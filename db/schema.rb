@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140822192513) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -40,8 +37,8 @@ ActiveRecord::Schema.define(version: 20140822192513) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -56,7 +53,7 @@ ActiveRecord::Schema.define(version: 20140822192513) do
     t.datetime "updated_at"
     t.integer  "storage_width"
     t.integer  "storage_height"
-    t.float    "storage_aspect_ratio"
+    t.float    "storage_aspect_ratio", limit: 24
     t.integer  "storage_depth"
     t.string   "storage_format"
     t.string   "storage_mime_type"
@@ -96,8 +93,8 @@ ActiveRecord::Schema.define(version: 20140822192513) do
     t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet     "current_sign_in_ip"
-    t.inet     "last_sign_in_ip"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "provider"

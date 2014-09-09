@@ -177,6 +177,7 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    mysql (2.9.1)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
@@ -205,10 +206,14 @@ GEM
     parser (2.2.0.pre.4)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
-    pg (0.17.1)
+    pg_array_parser (0.0.9)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
+    postgres_ext (2.3.0)
+      activerecord (>= 4.0.0)
+      arel (>= 4.0.1)
+      pg_array_parser (~> 0.0.9)
     powerpack (0.0.9)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -348,10 +353,11 @@ DEPENDENCIES
   kaminari
   meta-tags
   mini_magick
+  mysql
   omniauth-facebook
   omniauth-google-oauth2
   paranoia!
-  pg
+  postgres_ext
   pry-rails
   pundit
   quiet_assets
