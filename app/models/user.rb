@@ -6,9 +6,10 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_one :user_info, dependent: :destroy
+  has_many :user_tokens, dependent: :destroy
 
   def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_create do |user|
+    user = where(auth.slice(:provider, :uid)).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
     end
@@ -35,7 +36,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def create_facebook_user_info(data)
+  def create_omniauth_user_info(data)
     unless self.user_info
       hash = {}
       hash["username"] = data.info.name
@@ -45,11 +46,22 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_google_user_info(data)
-    hash = {}
-    hash["username"] = data.info.name
-    hash["gender"] = data.extra.raw_info.gender
-    hash["avatar"] = data.info.image
-    self.create_user_info(hash)
+  def create_user_token(data)
+    if User.joins(:user_tokens).where(id: self.id, provider: data.provider).empty?
+      hash = {}
+      hash["provider"] = data.provider
+      hash["uid"] = data.uid
+      hash["expire_date"] = data.credentials.expires_at
+      hash["token"] = data.credentials.token
+      hash["last_sign_in_at"] = Time.now
+      self.user_tokens.create(hash)
+    else
+      user_token = self.user_tokens.where(provider: data.provider).first
+      hash = {}
+      hash["expire_date"] = data.credentials.expires_at
+      hash["token"] = data.credentials.token
+      hash["last_sign_in_at"] = Time.now
+      user_token.update(hash)
+    end
   end
 end

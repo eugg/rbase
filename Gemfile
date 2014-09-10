@@ -17,7 +17,7 @@ end
 
 gem "babosa"
 gem "fog"
-gem 'redactor-rails'
+gem "redactor-rails"
 gem "carrierwave"
 gem "mini_magick"
 gem "unicorn"
