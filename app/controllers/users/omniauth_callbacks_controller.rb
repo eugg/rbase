@@ -1,29 +1,37 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @user = User.from_omniauth(request.env["omniauth.auth"])
-    @user.create_omniauth_user_info(request.env["omniauth.auth"])
-    @user.create_user_token(request.env["omniauth.auth"])
-    @user.confirm!
-    if @user.persisted?
-      sign_in_and_redirect @user, event: :authentication
-      set_flash_message(:notice, :success, kind: "Facebook") if is_navigational_format?
+    data = request.env["omniauth.auth"]
+    provider = data.provider
+    uid = data.uid
+    email = data.email
+    user_social = UserSocial.find_user_by_uid(provider, uid)
+    user_by_email = User.find_by_email(email)
+    if user_social
+      sign_in_and_redirect user_social.user, event: :authentication
+    elsif user_by_email
+      user_by_email.user_socials.create_user_social(data)
+      sign_in_and_redirect user, event: :authentication
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      session["devise.facebook_data"] = data
+      redirect_to new_user_session_url
     end
   end
 
   def google_oauth2
-    @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
-    @user.create_omniauth_user_info(request.env["omniauth.auth"])
-    @user.create_user_token(request.env["omniauth.auth"])
-    @user.confirm!
-    if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", kind: "Google"
-      sign_in_and_redirect @user, event: :authentication
+    data = request.env["omniauth.auth"]
+    provider = data.provider
+    uid = data.uid
+    email = data.email
+    user_social = UserSocial.find_user_by_uid(provider, uid)
+    user_by_email = User.find_by_email(email)
+    if user_social
+      sign_in_and_redirect user_social.user, event: :authentication
+    elsif user_by_email
+      user_by_email.user_socials.create_user_social(data)
+      sign_in_and_redirect user, event: :authentication
     else
-      session["devise.google_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
+      session["devise.facebook_data"] = data
+      redirect_to new_user_session_url
     end
   end
 end

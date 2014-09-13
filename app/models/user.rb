@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_one :user_info, dependent: :destroy
-  has_many :user_tokens, dependent: :destroy
+  has_many :user_socials, dependent: :destroy
 
   def self.from_omniauth(auth)
     user = where(auth.slice(:provider, :uid)).first_or_create do |user|
@@ -46,22 +46,22 @@ class User < ActiveRecord::Base
     end
   end
 
-  def create_user_token(data)
-    if User.joins(:user_tokens).where(id: self.id, provider: data.provider).empty?
+  def create_user_social(data)
+    if User.joins(:user_socials).where(id: self.id, provider: data.provider).empty?
       hash = {}
       hash["provider"] = data.provider
       hash["uid"] = data.uid
       hash["expire_date"] = data.credentials.expires_at
       hash["token"] = data.credentials.token
       hash["last_sign_in_at"] = Time.now
-      self.user_tokens.create(hash)
+      self.user_socials.create(hash)
     else
-      user_token = self.user_tokens.where(provider: data.provider).first
+      user_social = self.user_socials.where(provider: data.provider).first
       hash = {}
       hash["expire_date"] = data.credentials.expires_at
       hash["token"] = data.credentials.token
       hash["last_sign_in_at"] = Time.now
-      user_token.update(hash)
+      user_social.update(hash)
     end
   end
 end
