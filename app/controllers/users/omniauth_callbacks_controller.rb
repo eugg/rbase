@@ -11,8 +11,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user_by_email.create_user_social(data)
       sign_in_and_redirect user_by_email, event: :authentication
     else
-      session["devise.facebook_data"] = data
-      redirect_to new_user_registration_url
+      session["devise.social_data"] = data
+      redirect_to new_user_session_url
     end
 
     # 還差使用者選擇登入後，自動建立user_social的情況
@@ -30,8 +30,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user_by_email.create_user_social(data)
       sign_in_and_redirect user_by_email, event: :authentication
     else
-      session["devise.facebook_data"] = data
-      redirect_to new_user_registration_url
+      session["devise.social_data"] = data
+      redirect_to new_user_session_url
     end
   end
 end
