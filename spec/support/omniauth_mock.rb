@@ -1,9 +1,10 @@
 
 OmniAuth.config.test_mode = true
 
-OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
-  provider: 'facebook',
-  uid: '123545',
+OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new
+({
+  provider: "facebook",
+  uid: "123545",
   info: {
     first_name: "Stan",
     last_name: "Luo",
@@ -17,14 +18,15 @@ OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
   },
   extra: {
     raw_info: {
-      gender: 'male'
+      gender: "male"
     }
   }
 })
 
-OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
-  provider: 'google',
-  uid: '123545',
+OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new
+({
+  provider: "google",
+  uid: "123545",
   info: {
     first_name: "Stan",
     last_name: "Luo",
@@ -38,7 +40,7 @@ OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
   },
   extra: {
     raw_info: {
-      gender: 'male'
+      gender: "male"
     }
   }
 })

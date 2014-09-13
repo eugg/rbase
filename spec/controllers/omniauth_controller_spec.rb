@@ -3,11 +3,11 @@
 # RSpec.describe Users::OmniauthCallbacksController, type: :controller do
 #   let!(:user) { create(:user) }
 #   let!(:user_social) { create(:user_social) }
-  
+
 #   describe "facebook login" do
-#     before do 
+#     before do
 #       request.env["devise.mapping"] = Devise.mappings[:user] # If using Devise
-#       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook] 
+#       request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
 #     end
 #     it "should look for user_social" do
 #       expect(UserSocial).to receive(:find_user_by_uid)

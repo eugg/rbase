@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
 
-    #還差使用者選擇登入後，自動建立user_social的情況
+    # 還差使用者選擇登入後，自動建立user_social的情況
   end
 
   def google_oauth2
