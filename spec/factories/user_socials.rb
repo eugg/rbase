@@ -2,9 +2,11 @@
 
 FactoryGirl.define do
   factory :user_social do
-    provider "123"
+    provider Faker::Company.name
     user
-    uid "123456"
-    expire_date "12334"
+    uid Faker::PhoneNumber.phone_number
+    expire_date Faker::PhoneNumber.phone_number
+    token Faker::Lorem.characters
+    last_sign_in_at Time.now + 1
   end
 end

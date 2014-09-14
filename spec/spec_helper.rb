@@ -16,7 +16,6 @@ require "rubygems"
 require "factory_girl"
 require "devise"
 require "support/controller_marcos.rb"
-require "support/omniauth_mock.rb"
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
