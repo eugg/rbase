@@ -8,7 +8,7 @@ class Users::SessionsController < Devise::SessionsController
   def create
     super
     if data = @@user_social_data
-      resource.create_user_social_from_resource(data)
+      resource.create_user_social(data)
       @@user_social_data = nil
     end
   end

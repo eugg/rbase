@@ -1,5 +1,14 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  describe "create_user_social method test" do
+    before do
+      subject.create_user_social()
+    end
+    
+    it "should search user by uid & provider" do
+      expect(User).to receive_message_chain(:joins, :where, :empty?)
+    end
+  end
 end

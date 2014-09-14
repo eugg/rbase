@@ -21,25 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def create_user_social(data)
-    if User.joins(:user_socials).where(id: id, provider: data.provider).empty?
-      hash = {}
-      hash["provider"] = data.provider
-      hash["uid"] = data.uid
-      hash["expire_date"] = data.credentials.expires_at
-      hash["token"] = data.credentials.token
-      hash["last_sign_in_at"] = Time.now
-      user_socials.create(hash)
-    else
-      user_social = user_socials.where(provider: data.provider).first
-      hash = {}
-      hash["expire_date"] = data.credentials.expires_at
-      hash["token"] = data.credentials.token
-      hash["last_sign_in_at"] = Time.now
-      user_social.update(hash)
-    end
-  end
-
-  def create_user_social_from_resource(data)
     hash = {}
     hash["provider"] = data["provider"]
     hash["uid"] = data["uid"]
