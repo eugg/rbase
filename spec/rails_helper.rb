@@ -2,7 +2,6 @@
 ENV["RAILS_ENV"] ||= "test"
 require "simplecov"
 SimpleCov.start
-require "support/omniauth_mock.rb"
 require "spec_helper"
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"

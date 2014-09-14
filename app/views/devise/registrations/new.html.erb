@@ -13,7 +13,7 @@
   <%= f.text_field :gender, autofocus: true %></div>
 
   <div><%= f.label :avatar %><br />
-  <%= f.text_field :avatar, autofocus: true %></div>
+  <%= f.text_field :avatar, autofocus: true, autocomplete: "off" %></div>
 
   <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>

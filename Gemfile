@@ -25,6 +25,7 @@ gem "pry-rails"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+gem "omniauth-weibo-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
 gem "active_skin"
 gem "pundit"
