@@ -8,7 +8,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
     @request.env["devise.mapping"] = Devise.mappings[:user]
     @request.env["omniauth.auth"] = mock_hash
   end
-  
+
   describe "UserSocial custom method test" do
     it "find_user_by_uid" do
       expect(UserSocial).to receive_message_chain(:where, :first)
@@ -58,24 +58,24 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
 end
 
 def mock_hash
-{
-  "provider" => "facebook",
-  "uid" => "123545",
-  "info" => {
-    "first_name" => "Stan",
-    "last_name" => "Luo",
-    "name" => "Stan Luo",
-    "email" => "test@example.com",
-    "avatar" => "http://www.example.com"
-  },
-  "credentials" => {
-    "token" => "123456",
-    "expires_at" => Time.now + 1.week
-  },
-  "extra" => {
-    "raw_info" => {
-      "gender" => "male"
+  {
+    "provider" => "facebook",
+    "uid" => "123545",
+    "info" => {
+      "first_name" => "Stan",
+      "last_name" => "Luo",
+      "name" => "Stan Luo",
+      "email" => "test@example.com",
+      "avatar" => "http://www.example.com"
+    },
+    "credentials" => {
+      "token" => "123456",
+      "expires_at" => Time.now + 1.week
+    },
+    "extra" => {
+      "raw_info" => {
+        "gender" => "male"
+      }
     }
   }
-}
 end

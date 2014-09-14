@@ -1,5 +1,5 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  ["facebook", "google_oauth2"].each do |name|
+  ["facebook", "google_oauth2", "weibo"].each do |name|
     define_method "#{name}" do
       data = request.env["omniauth.auth"]
       provider = data["provider"]
