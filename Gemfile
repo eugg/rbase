@@ -17,7 +17,7 @@ end
 
 gem "babosa"
 gem "fog"
-gem 'redactor-rails'
+gem "redactor-rails"
 gem "carrierwave"
 gem "mini_magick"
 gem "unicorn"
@@ -25,12 +25,14 @@ gem "pry-rails"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
+gem "omniauth-weibo-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"
 gem "active_skin"
 gem "pundit"
 gem "ransack", github: "activerecord-hackery/ransack", branch: "rails-4.1"
 gem "devise"
 gem "mysql"
+gem "pg"
 gem "postgres_ext"
 gem "paranoia", github: "radar/paranoia", branch: "rails4"
 gem "kaminari"

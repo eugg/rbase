@@ -12,9 +12,14 @@
 #
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
-#
+require "rubygems"
+require "factory_girl"
+require "devise"
+require "support/controller_marcos.rb"
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
