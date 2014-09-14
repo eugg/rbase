@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140913082201) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 20140913082201) do
     t.datetime "updated_at"
     t.integer  "storage_width"
     t.integer  "storage_height"
-    t.float    "storage_aspect_ratio", limit: 24
+    t.float    "storage_aspect_ratio"
     t.integer  "storage_depth"
     t.string   "storage_format"
     t.string   "storage_mime_type"
