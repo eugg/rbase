@@ -3,9 +3,9 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: "smtp.mail.yahoo.com",
+    address: ENV["MAILER_ADDRESS"],
     port: 587,
-    domain: "yahoo.com",
+    domain: ENV["MAILER_DOMAIN"],
     user_name: ENV["MAILER_USER_NANE"],
     password: ENV["MAILER_PASSWORD"],
     authentication: "plain",
