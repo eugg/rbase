@@ -6,7 +6,7 @@ Rails.application.configure do
     address: ENV["MAILER_ADDRESS"],
     port: 587,
     domain: ENV["MAILER_DOMAIN"],
-    user_name: ENV["MAILER_USER_NANE"],
+    user_name: ENV["MAILER_USER_NAME"],
     password: ENV["MAILER_PASSWORD"],
     authentication: "plain",
     enable_starttls_auto: true  }
