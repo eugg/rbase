@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     flash[:error] = "You are not authorized to perform this action."
     redirect_to root_path
   end
+
+  def admin_user?
+    if !current_user.try(:admin?)
+      redirect_to root_path, notice: "你不是管理者！"
+    end
+  end
 end

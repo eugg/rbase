@@ -41,4 +41,16 @@ class User < ActiveRecord::Base
       "other"
     end
   end
+
+  def to_admin!
+    update_attributes(role: "admin")
+  end
+
+  def to_member!
+    update_attributes(role: "member")
+  end
+
+  def to_project_owner!
+    update_attributes(role: "project_owner")
+  end
 end
