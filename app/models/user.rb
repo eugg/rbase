@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   end
 
   def self.generalize_gender(gender)
-    if gender = "m"
+    if gender == "m"
       "male"
-    elsif gender = "f"
+    elsif gender == "f"
       "female"
     else
       "other"
