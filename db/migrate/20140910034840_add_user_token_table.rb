@@ -1,6 +1,6 @@
 class AddUserTokenTable < ActiveRecord::Migration
   def change
-    create_table :user_tokens do |t|
+    create_table :user_socials do |t|
       t.string :provider
       t.integer :user_id, unique: true
       t.string :uid

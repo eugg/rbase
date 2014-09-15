@@ -1,4 +1,5 @@
 ActiveAdmin.setup do |config|
+
   # == Site Title
   #
   # Set the title that is displayed on the main layout
@@ -14,7 +15,7 @@ ActiveAdmin.setup do |config|
   # Set an optional image to be displayed for the header
   # instead of a string (overrides :site_title)
   #
-  # Note: Aim for an image that"s 21px high so it fits in the header.
+  # Note: Aim for an image that's 21px high so it fits in the header.
   #
   # config.site_title_image = "logo.png"
 
@@ -70,7 +71,7 @@ ActiveAdmin.setup do |config|
   # You can specify a method to be called on unauthorized access.
   # This is necessary in order to prevent a redirect loop which happens
   # because, by default, user gets redirected to Dashboard. If user
-  # doesn"t have access to Dashboard, he"ll end up in a redirect loop.
+  # doesn't have access to Dashboard, he'll end up in a redirect loop.
   # Method provided here should be defined in application_controller.rb.
   # config.on_unauthorized_access = :access_denied
 
@@ -83,13 +84,14 @@ ActiveAdmin.setup do |config|
   # (within the application controller) to return the currently logged in user.
   config.current_user_method = :current_admin_user
 
+
   # == Logging Out
   #
   # Active Admin displays a logout link on each screen. These
   # settings configure the location and method used for the link.
   #
-  # This setting changes the path where the link points to. If it"s
-  # a string, the strings is used as the path. If it"s a Symbol, we
+  # This setting changes the path where the link points to. If it's
+  # a string, the strings is used as the path. If it's a Symbol, we
   # will call the method to return the path.
   #
   # Default:
@@ -101,13 +103,15 @@ ActiveAdmin.setup do |config|
   # Default:
   # config.logout_link_method = :get
 
+
   # == Root
   #
   # Set the action to call for the root path. You can set different
   # roots for each namespace.
   #
   # Default:
-  # config.root_to = "dashboard#index"
+  # config.root_to = 'dashboard#index'
+
 
   # == Admin Comments
   #
@@ -120,13 +124,15 @@ ActiveAdmin.setup do |config|
   # config.show_comments_in_menu = false
   #
   # You can change the name under which comments are registered:
-  # config.comments_registration_name = "AdminComment"
+  # config.comments_registration_name = 'AdminComment'
+
 
   # == Batch Actions
   #
   # Enable and disable Batch Actions
   #
   config.batch_actions = true
+
 
   # == Controller Filters
   #
@@ -135,9 +141,11 @@ ActiveAdmin.setup do |config|
   #
   # config.before_filter :do_something_awesome
 
+
   # == Setting a Favicon
   #
-  # config.favicon = "/assets/favicon.ico"
+  # config.favicon = '/assets/favicon.ico'
+
 
   # == Removing Breadcrumbs
   #
@@ -146,6 +154,7 @@ ActiveAdmin.setup do |config|
   #
   # config.breadcrumb = false
 
+
   # == Register Stylesheets & Javascripts
   #
   # We recommend using the built in Active Admin layout and loading
@@ -153,22 +162,23 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  #   config.register_stylesheet "my_stylesheet.css"
-
+  #   config.register_stylesheet 'my_stylesheet.css'
+  #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
-  #   config.register_stylesheet "my_print_stylesheet.css", :media => :print
+  #   config.register_stylesheet 'my_print_stylesheet.css', :media => :print
   #
   # To load a javascript file:
-  config.register_stylesheet "redactor-rails.css"
-  config.register_javascript "redactor-rails.js"
+  #   config.register_javascript 'my_javascript.js'
+
 
   # == CSV options
   #
   # Set the CSV builder separator
-  # config.csv_options = { :col_sep => ";" }
+  # config.csv_options = { :col_sep => ';' }
   #
   # Force the use of quotes
   # config.csv_options = { :force_quotes => true }
+
 
   # == Menu System
   #
@@ -191,6 +201,7 @@ ActiveAdmin.setup do |config|
   #     end
   #   end
 
+
   # == Download Links
   #
   # You can disable download links on resource listing pages,
@@ -212,12 +223,14 @@ ActiveAdmin.setup do |config|
   #
   #   end
 
+
   # == Pagination
   #
   # Pagination is enabled by default for all resources.
   # You can control the default per page count for all resources here.
   #
   # config.default_per_page = 30
+
 
   # == Filters
   #
