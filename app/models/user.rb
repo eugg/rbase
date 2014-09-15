@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   enum gender: [:other, :male, :female]
 
+  enum role: [:member, :project_owner, :admin]
+
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.social_data"] && session["devise.social_data"]["extra"]["raw_info"]

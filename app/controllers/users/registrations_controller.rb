@@ -1,6 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   def new
-    session["user_social_data"] = session["devise.social_data"]
+    if session["devise.social_data"]
+      session["user_social_data"] = session["devise.social_data"]
+    else
+      session["user_social_data"] = nil
+    end
     super
   end
 
