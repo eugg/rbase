@@ -186,7 +186,7 @@ def weibo_hash
     },
     "extra" => {
       "raw_info" => {
-        "gender" => "male"
+        "gender" => "m"
       }
     }
   }
