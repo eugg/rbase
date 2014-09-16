@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
-  def admin_user?
-    if !current_user.try(:admin?)
-      redirect_to root_path, notice: "你不是管理者！"
-    end
+  def authenticate_admin!
+    authenticate_user! && current_user.try(:admin?)
   end
 end

@@ -1,6 +1,7 @@
 
 def facebook_hash
-  {
+  OmniAuth::AuthHash.new
+  ({
     "provider" => "facebook",
     "uid" => "123545",
     "info" => {
@@ -19,11 +20,12 @@ def facebook_hash
         "gender" => "male"
       }
     }
-  }
+  })
 end
 
 def google_oauth2_hash
-  {
+  OmniAuth::AuthHash.new
+  ({
     "provider" => "google_oauth2",
     "uid" => "123545",
     "info" => {
@@ -42,11 +44,12 @@ def google_oauth2_hash
         "gender" => "male"
       }
     }
-  }
+  })
 end
 
 def weibo_hash
-  {
+  OmniAuth::AuthHash.new
+  ({
     "provider" => "weibo",
     "uid" => "123545",
     "info" => {
@@ -65,5 +68,5 @@ def weibo_hash
         "gender" => "m"
       }
     }
-  }
+  })
 end

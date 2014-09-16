@@ -2,6 +2,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   ["facebook", "google_oauth2", "weibo"].each do |name|
     define_method "#{name}" do
       data = request.env["omniauth.auth"]
+      data.delete("extra")
       provider = data["provider"]
       uid = data["uid"]
       email = data["info"]["email"]

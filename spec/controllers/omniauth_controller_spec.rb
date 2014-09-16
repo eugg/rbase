@@ -8,7 +8,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
     @request.env["devise.mapping"] = Devise.mappings[:user]
   end
   context "method test" do
-    before { @request.env["omniauth.auth"] = facebook_hash }
+    before { OmniAuth.config.mock_auth[:facebook] = facebook_hash }
     describe "UserSocial custom method test" do
       it "find_user_by_uid" do
         expect(UserSocial).to receive_message_chain(:where, :first)
@@ -30,7 +30,12 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
   end
 
   context "Facebook" do
-    before { @request.env["omniauth.auth"] = facebook_hash }
+    before do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:facebook] = facebook_hash
+      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:facebook]
+    end
+
     describe "user has user_social" do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(user_social) }
       it "should update social data" do
@@ -61,7 +66,11 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
   end
 
   context "Google" do
-    before { @request.env["omniauth.auth"] = google_oauth2_hash }
+    before do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:google_oauth2] = google_oauth2_hash
+      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+    end
     describe "user has user_social" do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(user_social) }
       it "should update social data" do
@@ -92,7 +101,11 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
   end
 
   context "Weibo" do
-    before { @request.env["omniauth.auth"] = weibo_hash }
+    before do
+      OmniAuth.config.test_mode = true
+      OmniAuth.config.mock_auth[:weibo] = weibo_hash
+      request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:weibo]
+    end
     describe "user has user_social" do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(user_social) }
       it "should update social data" do
