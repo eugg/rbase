@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin!
-    authenticate_user! && current_user.try(:admin?)
+    unless current_user.try(:admin?)
+      redirect_to new_user_session_path, notice: "你不是管理者"
+    end
   end
 end
