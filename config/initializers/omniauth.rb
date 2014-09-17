@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :weibo, ENV["WEIBO_KEY"], ENV["WEIBO_SECRET"]
+  provider :weibo, Rails.application.secrets.weibo_key, Rails.application.secrets.weibo_secret
 end

@@ -9,13 +9,15 @@ class User < ActiveRecord::Base
 
   enum gender: [:other, :male, :female]
 
+  enum role: [:member, :project_owner, :admin]
+
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.social_data"] && session["devise.social_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-        user.name = data["name"] if user.name.blank?
-        user.gender = generalize_gender(data["gender"]) if user.gender.blank?
-        user.avatar = data["picture"] if user.avatar.blank?
+      if data = session["devise.social_data"] && session["devise.social_data"]["info"]
+        user.email = data["email"] unless user.email?
+        user.name = data["name"] unless user.name?
+        user.gender = generalize_gender(data["gender"]) unless user.gender?
+        user.avatar = data["picture"] || data["image"] unless user.avatar?
       end
     end
   end
@@ -38,5 +40,17 @@ class User < ActiveRecord::Base
     else
       "other"
     end
+  end
+
+  def to_admin!
+    update_attributes(role: "admin")
+  end
+
+  def to_member!
+    update_attributes(role: "member")
+  end
+
+  def to_project_owner!
+    update_attributes(role: "project_owner")
   end
 end
