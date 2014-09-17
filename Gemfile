@@ -15,7 +15,6 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
-gem "activerecord-session_store"
 gem "babosa"
 gem "fog"
 gem "redactor-rails"

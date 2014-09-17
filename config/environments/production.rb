@@ -1,13 +1,13 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  config.action_mailer.default_url_options = { host: ENV["MAILER_HOST"] }
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.mailer_host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: ENV["MAILER_ADDRESS"],
+    address: Rails.application.secrets.mailer_address,
     port: 587,
-    domain: ENV["MAILER_DOMAIN"],
-    user_name: ENV["MAILER_USER_NAME"],
-    password: ENV["MAILER_PASSWORD"],
+    domain: "rbase.herokuapp.com",
+    user_name: Rails.application.secrets.mailer_user_name,
+    password: Rails.application.secrets.mailer_password,
     authentication: "plain",
     enable_starttls_auto: true  }
   # Code is not reloaded between requests.
