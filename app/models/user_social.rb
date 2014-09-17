@@ -1,4 +1,5 @@
 class UserSocial < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :user, class_name: "User", foreign_key: "user_id"
 
   def self.find_user_social_by_uid(provider, uid)
