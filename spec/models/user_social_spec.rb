@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe UserSocial, type: :model do
-  
+
   subject { create(:user_social) }
 
   describe "validation test" do
