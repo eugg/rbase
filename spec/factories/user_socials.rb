@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :user_social do
     provider Faker::Company.name
-    user
+    user_id 1
+    email Faker::Internet.email
     uid Faker::PhoneNumber.phone_number
     expire_date Faker::PhoneNumber.phone_number
     token Faker::Lorem.characters
