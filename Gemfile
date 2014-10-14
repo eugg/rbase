@@ -2,6 +2,13 @@ source "https://rubygems.org"
 ruby "2.1.2"
 gem "rails", "4.1.4"
 
+group :production do
+  gem "rack-cache"
+  gem "memcachier"
+  gem "skylight"
+  gem "rails_12factor"
+end
+
 group :test, :development do
   gem "spring"
   gem "rspec-rails"
@@ -15,6 +22,8 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
+gem "dalli"
+gem "kgio"
 gem "babosa"
 gem "fog"
 gem "redactor-rails"
@@ -22,6 +31,7 @@ gem "carrierwave"
 gem "mini_magick"
 gem "unicorn"
 gem "pry-rails"
+gem "rollbar"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
@@ -31,7 +41,6 @@ gem "active_skin"
 gem "pundit"
 gem "ransack"
 gem "devise"
-gem "mysql"
 gem "pg"
 gem "postgres_ext"
 gem "paranoia", github: "radar/paranoia", branch: "rails4"
@@ -46,5 +55,3 @@ gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "aasm"
 gem "sdoc", "~> 0.4.0",          group: :doc
-
-gem "rails_12factor", group: :production
