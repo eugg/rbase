@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
         user.name = data["name"] unless user.name?
         user.gender = generalize_gender(data["gender"]) unless user.gender?
         user.avatar = data["picture"] || data["image"] unless user.avatar?
+        user.skip_confirmation!
       end
     end
   end
@@ -26,6 +27,7 @@ class User < ActiveRecord::Base
   def create_user_social(data)
     hash = {}
     hash["provider"] = data["provider"]
+    hash["email"] = data["info"]["email"]
     hash["uid"] = data["uid"]
     hash["expire_date"] = data["credentials"]["expires_at"]
     hash["token"] = data["credentials"]["token"]

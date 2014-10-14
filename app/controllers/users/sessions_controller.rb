@@ -2,8 +2,6 @@ class Users::SessionsController < Devise::SessionsController
   def new
     if session["devise.social_data"]
       session["user_social_data"] = session["devise.social_data"]
-    else
-      session["user_social_data"] = nil
     end
     super
   end
