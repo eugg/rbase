@@ -21,7 +21,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         sign_in_and_redirect user_by_email, bypass: true
       else # 沒社群也找不到對應email的user
         session["devise.social_data"] = data
-        redirect_to new_user_session_url, notice: "請登入或註冊"
+        redirect_to new_user_registration_url, notice: "請登入或註冊"
       end
     end
   end
