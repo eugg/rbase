@@ -60,7 +60,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(nil) }
       it "should create social data" do
         get :facebook
-        expect(response).to redirect_to new_user_session_url
+        expect(response).to redirect_to new_user_registration_url
       end
     end
   end
@@ -95,7 +95,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(nil) }
       it "should create social data" do
         get :google_oauth2
-        expect(response).to redirect_to new_user_session_url
+        expect(response).to redirect_to new_user_registration_url
       end
     end
   end
@@ -130,7 +130,7 @@ RSpec.describe Users::OmniauthCallbacksController, type: :controller do
       before { expect(UserSocial).to receive(:find_user_social_by_uid).and_return(nil) }
       it "should create social data" do
         get :weibo
-        expect(response).to redirect_to new_user_session_url
+        expect(response).to redirect_to new_user_registration_url
       end
     end
   end
