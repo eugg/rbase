@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :category do
-    name_zh "MyString"
-    name_en "MyString"
+    name_zh Faker::Job.title
+    name_en Faker::Job.title
   end
 end

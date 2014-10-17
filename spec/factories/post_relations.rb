@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :post_relation do
-    post_id 1
-    tag_id 1
-    type 1
+    post
+    tag
+    type PostRelation.types.keys.sample
   end
 end

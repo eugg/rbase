@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
          :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :weibo]
 
   has_many :user_socials, dependent: :destroy
+  has_many :posts
 
   enum gender: [:other, :male, :female]
 

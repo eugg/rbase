@@ -12,7 +12,7 @@ end
 group :test, :development do
   gem "spring"
   gem "rspec-rails"
-  gem "shoulda-matchers", require: false
+  gem "shoulda-matchers", require: false, git: "https://github.com/thoughtbot/shoulda-matchers.git"
   gem "factory_girl_rails"
   gem "database_cleaner"
   gem "spring-commands-rspec"

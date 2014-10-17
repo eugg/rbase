@@ -23,6 +23,13 @@ GIT
     paranoia (2.0.2)
       activerecord (~> 4.0)
 
+GIT
+  remote: https://github.com/thoughtbot/shoulda-matchers.git
+  revision: ca02b6b2e53aaceb17f86a6ac4a6a52b5e18d95e
+  specs:
+    shoulda-matchers (2.7.0)
+      activesupport (>= 3.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -293,8 +300,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    shoulda-matchers (2.6.2)
-      activesupport (>= 3.0.0)
     simplecov (0.9.0)
       docile (~> 1.1.0)
       multi_json
@@ -380,7 +385,7 @@ DEPENDENCIES
   rubocop
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
-  shoulda-matchers
+  shoulda-matchers!
   simplecov
   skylight
   spring
