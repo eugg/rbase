@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921051926) do
+ActiveRecord::Schema.define(version: 20141017091426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,11 +31,29 @@ ActiveRecord::Schema.define(version: 20140921051926) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "categories", force: true do |t|
+    t.string   "name_zh"
+    t.string   "name_en"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "post_relations", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
+    t.integer  "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.integer  "type"
   end
 
   create_table "projects", force: true do |t|
@@ -84,6 +102,13 @@ ActiveRecord::Schema.define(version: 20140921051926) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name_zh"
+    t.string   "name_en"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_socials", force: true do |t|
     t.string   "provider"
