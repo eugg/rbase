@@ -7,6 +7,6 @@ class Post < ActiveRecord::Base
   validates :status, presence: true
   validates :type, presence: true
 
-  enum status: [:draft, :published]
-  enum type: [:normal, :portfolio]
+  enum status: [:draft, :publish, :member_only]
+  enum type: [:post, :page, :portfolio]
 end

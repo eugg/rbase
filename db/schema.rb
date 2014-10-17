@@ -11,22 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141017091426) do
+ActiveRecord::Schema.define(version: 20141017102211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
-    t.string   "name_zh"
-    t.string   "name_en"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "post_relations", force: true do |t|
     t.integer  "post_id"
     t.integer  "tag_id"
-    t.integer  "type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,6 +65,7 @@ ActiveRecord::Schema.define(version: 20141017091426) do
     t.string   "name_en"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "type"
   end
 
   create_table "user_socials", force: true do |t|

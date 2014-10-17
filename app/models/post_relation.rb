@@ -4,7 +4,4 @@ class PostRelation < ActiveRecord::Base
 
   validates :post_id, presence: true
   validates :tag_id, presence: true
-  validates :type, presence: true
-
-  enum type: [:type1, :type2]
 end
