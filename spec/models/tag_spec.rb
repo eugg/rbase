@@ -6,10 +6,11 @@ RSpec.describe Tag, type: :model do
   describe "active_model test" do
     it { should validate_presence_of :name_zh }
     it { should validate_presence_of :name_en }
+    it { should validate_presence_of :tag_type }
   end
 
   describe "active_record test" do
     it { should have_many :post_relations }
-    it { should define_enum_for :type }
+    it { should define_enum_for :tag_type }
   end
 end

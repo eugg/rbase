@@ -5,7 +5,7 @@ FactoryGirl.define do
     title Faker::Job.title
     content Faker::Lorem.paragraph
     status Post.statuses.keys.sample
-    type Post.types.keys.sample
+    post_type Post.post_types.keys.sample
     user
   end
 end

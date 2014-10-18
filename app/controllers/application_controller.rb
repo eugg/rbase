@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -15,6 +16,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def set_search
+    @search = Post.search(params[:q])
+  end
   protected
 
   def configure_permitted_parameters

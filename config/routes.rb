@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  mount RedactorRails::Engine => "/redactor_rails"
   ActiveAdmin.routes(self)
-
+  mount RedactorRails::Engine => "/redactor_rails"
+  
   root "posts#index"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks",
                                     registrations: "users/registrations",
                                     sessions: "users/sessions" }
-
-  authenticate :user do
-    resources :posts, only: [:new, :create, :edit, :update, :destroy]
+  resources :posts do
+    collection do
+      get :search
+    end
   end
-
-  resources :posts, only: [:index, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

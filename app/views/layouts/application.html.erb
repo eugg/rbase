@@ -9,18 +9,72 @@
 </head>
 <body>
   <div class="container">
-    
-    <% if current_user %>
-      <%= link_to "登出", destroy_user_session_path, method: :delete  %>
-      <%= current_user.email %>
-    <% else %>
-      <%= link_to "登入", new_user_session_path %>
-      <%= link_to "註冊", new_user_registration_path %>
-    <% end %>
-    
+    <%= render partial: "layouts/navbar" %>    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+
+        <div class="col-md-4">
+          <div class="well">
+            <h4>Blog Search</h4>
+            <div class="input-group">
+              <%= search_form_for @search, url: search_posts_path do |f| %>
+                <%= f.search_field :title_cont, class: "form-control", placeholder: "名稱搜尋" %>
+                <span class="input-group-btn">
+                  <%= f.submit "搜尋",class: "btn btn-default" do %>
+                    <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
+                </span>
+              <% end %>
+            </div>
+          </div>
+
+          <!-- Blog Categories Well -->
+          <div class="well">
+            <h4>Blog Categories</h4>
+            <div class="row">
+              <div class="col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                </ul>
+              </div>
+                <!-- /.col-lg-6 -->
+              <div class="col-lg-6">
+                <ul class="list-unstyled">
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                  <li><a href="#">Category Name</a>
+                  </li>
+                </ul>
+              </div>
+                <!-- /.col-lg-6 -->
+            </div>
+            <!-- /.row -->
+          </div>
+
+          <!-- Side Widget Well -->
+          <div class="well">
+            <h4>Side Widget Well</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>

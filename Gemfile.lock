@@ -65,6 +65,8 @@ GEM
       activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     ast (2.0.0)
+    autoprefixer-rails (3.1.2.20141016)
+      execjs
     awesome_print (1.2.0)
     babosa (0.3.11)
     bcrypt (3.1.7)
@@ -348,6 +350,7 @@ DEPENDENCIES
   aasm
   active_skin
   activeadmin!
+  autoprefixer-rails
   awesome_print
   babosa
   bootstrap-sass (~> 3.2.0)

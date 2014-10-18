@@ -3,6 +3,7 @@ class Tag < ActiveRecord::Base
 
   validates :name_zh, presence: true
   validates :name_en, presence: true
+  validates :tag_type, presence: true
 
-  enum type: [:category, :tag]
+  enum tag_type: [:category, :tag]
 end
