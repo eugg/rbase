@@ -1,6 +1,5 @@
 ActiveAdmin.register Post do
-  permit_params :title, :content, :cover, :user_id, :status, :post_type
-
+  permit_params :title, :content, :cover, :user_id, :status, :post_type, tag_ids: []
   controller do
     def create
       @post = current_user.posts.new(post_params)
@@ -24,6 +23,7 @@ ActiveAdmin.register Post do
       f.input :status, as: :select, collection: Post.statuses.keys
       f.input :post_type, as: :select, collection: Post.post_types.keys
       f.input :content, input_html: { class: "redactor" }
+      f.input :tags, as: :check_boxes, collection: Tag.all, member_label: Proc.new { |a| "#{a.name_zh}" }
     end
     f.actions
   end

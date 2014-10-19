@@ -1,37 +1,37 @@
 
-    <h1 class="page-header">
-      Page Heading
-      <small>Secondary Text</small>
-    </h1>
+<h1 class="page-header">
+  Page Heading
+  <small>Secondary Text</small>
+</h1>
 
-    <!-- First Blog Post -->
-    <% @posts.each do |post| %>
-    <div class="post">
-      <h2>
-        <%= link_to post.title, post  %>
-      </h2>
-      <p class="lead">
-          by <%= post.user.name %>
-      </p>
-      <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %></p>
-      <hr>
-      <%= image_tag post.cover, class: "img-responsive" %>
-      <hr>
-      <p><%= raw(post.content) %></p>
-      <%= link_to(post, class: "btn btn-primary") do %>
-        繼續閱讀
-      <% end %>
-      <hr>
-    </div>
-    <% end %>
+<!-- First Blog Post -->
+<% @posts.each do |post| %>
+<div class="post">
+  <h2>
+    <%= link_to post.title, post  %>
+  </h2>
+  <p class="lead">
+      by <%= post.user.name %>
+  </p>
+  <p><span class="glyphicon glyphicon-time"></span> Posted on <%= post.created_at %></p>
+  <hr>
+  <%= image_tag post.cover, class: "img-responsive" %>
+  <hr>
+  <p><%= raw(post.content) %></p>
+  <%= link_to(post, class: "btn btn-primary") do %>
+    繼續閱讀
+  <% end %>
+  <hr>
+</div>
+<% end %>
 
-    <!-- Pager -->
-    <ul class="pager">
-      <li class="previous">
-          <a href="#">&larr; Older</a>
-      </li>
-      <li class="next">
-          <a href="#">Newer &rarr;</a>
-      </li>
-    </ul>
+<!-- Pager -->
+<ul class="pager">
+  <li class="previous">
+      <a href="#">&larr; Older</a>
+  </li>
+  <li class="next">
+      <a href="#">Newer &rarr;</a>
+  </li>
+</ul>
 
