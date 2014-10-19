@@ -12,15 +12,11 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
+        <% Post.pages.publish.each do |page| %>
         <li>
-            <a href="#">About</a>
+          <%= link_to page.title, page %>
         </li>
-        <li>
-            <a href="#">Services</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+        <% end %>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

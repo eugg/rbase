@@ -9,6 +9,8 @@ class PostsController < ApplicationController
   end
 
   def search
+    @heading = "搜尋結果"
+    @sub_heading = params[:q][:title_cont]
     @posts = @search.result
     render :index
   end
