@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
 
   def index
     @posts = Post.posts.publish.page params[:page]
   end
 
   def show
+    @post = set_post
   end
 
   def search
@@ -18,7 +18,7 @@ class PostsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    Post.find(params[:id])
   end
 
   def post_params

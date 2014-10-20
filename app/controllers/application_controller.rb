@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     unless current_user.try(:admin?)
-      redirect_to new_user_session_path, notice: "你不是管理者"
+      raise ActionController::RoutingError.new('Not Found')
     end
   end
 
