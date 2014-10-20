@@ -10,6 +10,7 @@ RSpec.describe Tag, type: :model do
   end
 
   describe "active_record test" do
+    it { should have_many(:posts).through(:post_relations) }
     it { should have_many :post_relations }
     it { should define_enum_for :tag_type }
   end

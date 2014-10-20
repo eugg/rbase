@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-
   def index
     @posts = Post.posts.publish.page params[:page]
   end
@@ -11,7 +10,7 @@ class PostsController < ApplicationController
   def search
     @heading = "搜尋結果"
     @sub_heading = params[:q][:title_cont]
-    @posts = @search.result
+    @posts = @search.result.page params[:page]
     render :index
   end
 

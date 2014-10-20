@@ -31,6 +31,17 @@ RSpec.describe PostsController, type: :controller do
   end
 
   describe "GET search" do
+    describe "search function" do
+      before do
+        allow(Post).to receive(:search).with({ title_cont: post.title}).and_return(Post.search({ title_cont: post.title }))
+        get :search, q: { title_cont: post.title }
+      end
+      it "should receive right method" do    
+        expect(assigns[:search]).to receive_message_chain(:result, :page)
+        get :search, q: { title_cont: post.title }
+      end      
+    end
+
     it "should get post" do
       get :search, q: { title_cont: post.title }
       expect(assigns[:search].result).to include post
