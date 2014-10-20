@@ -10,7 +10,7 @@ group :production do
 end
 
 group :test, :development do
-  gem "better_errors" 
+  gem "better_errors"
   gem "binding_of_caller"
   gem "spring"
   gem "rspec-rails"
@@ -57,4 +57,4 @@ gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "aasm"
-gem "sdoc", "~> 0.4.0",          group: :doc
+gem "sdoc", "~> 0.4.0", group: :doc

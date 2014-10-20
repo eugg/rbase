@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
   def index
-    @posts = Post.posts.publish
+    @posts = Post.posts.publish.page params[:page]
   end
 
   def show

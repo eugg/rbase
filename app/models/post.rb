@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  paginates_per 10
   mount_uploader :cover, CoverUploader
   belongs_to :user
   has_many :post_relations

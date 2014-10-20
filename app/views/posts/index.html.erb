@@ -1,12 +1,10 @@
-
 <h1 class="page-header">
   <%= @heading ||= "所有文章" %>
   <small><%= @sub_heading %></small>
 </h1>
 
-<!-- First Blog Post -->
 <% @posts.each do |post| %>
-<div class="post">
+<div class="post" data-no-turbolink>
   <h2>
     <%= link_to post.title, post  %>
   </h2>
@@ -25,12 +23,11 @@
 </div>
 <% end %>
 
-<!-- Pager -->
 <ul class="pager">
   <li class="previous">
-      <a href="#">&larr; Older</a>
+      <%= link_to_previous_page @posts, "上一頁" %>
   </li>
   <li class="next">
-      <a href="#">Newer &rarr;</a>
+      <%= link_to_next_page @posts, "下一頁" %>
   </li>
 </ul>

@@ -22,3 +22,11 @@
   min-width: 100% !important;
   width: 100% !important;
 }
+
+form.post_search{
+  width: 100%;
+}
+
+form.post_search .form-control{
+  width: 80%;
+}

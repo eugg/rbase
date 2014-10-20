@@ -18,8 +18,8 @@ ActiveAdmin.register Post do
   form do |f|
     f.inputs t("active_admin.jobs.job_info") do
       f.input :title
-      f.input :cover, :as => :file, :hint => f.template.image_tag(f.object.cover.url(:thumb)) 
-      f.input :cover_cache, :as => :hidden 
+      f.input :cover, as: :file, hint: f.template.image_tag(f.object.cover.url(:thumb))
+      f.input :cover_cache, as: :hidden
       f.input :status, as: :select, collection: Post.statuses.keys
       f.input :post_type, as: :select, collection: Post.post_types.keys
       f.input :content, input_html: { class: "redactor" }
