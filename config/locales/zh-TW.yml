@@ -5,6 +5,7 @@ zh-TW:
       tag: 標簽
       user_social: User社群資料
       user: 使用者
+      widget: 邊欄區塊
     attributes:
       post:
         title: 標題
@@ -29,6 +30,14 @@ zh-TW:
         name: 名稱
         post: 文章
         created_at: 註冊時間
+      widget:
+        title: 標題
+        content: 內容
+        widget_type: 類型
+        link: 標題或widget連結
+        order: 順序
+        created_at: 發佈時間
+        updated_at: 更新時間
   date:
     abbr_day_names:
     - 日
