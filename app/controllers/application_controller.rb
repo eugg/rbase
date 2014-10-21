@@ -6,14 +6,17 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def user_not_authorized
-    flash[:error] = "You are not authorized to perform this action."
-    redirect_to root_path
+    not_found_exception
   end
 
   def authenticate_admin!
     unless current_user.try(:admin?)
-      raise ActionController::RoutingError.new('Not Found')
+      not_found_exception
     end
+  end
+
+  def not_found_exception
+    raise ActionController::RoutingError.new('Not Found')
   end
 
   def set_search

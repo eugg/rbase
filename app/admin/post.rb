@@ -15,8 +15,60 @@ ActiveAdmin.register Post do
     end
   end
 
+  index do
+    column :id
+    column :title
+    column :user do |post|
+      post.user.name
+    end
+    column :tag do |post|
+      table_for post.tags do
+        column do |tag|
+          link_to tag.name_zh, [:admin, tag]
+        end
+      end
+    end
+    column :status
+    column :post_type
+
+    column :cover do |post|
+      image_tag post.cover.url(:thumb)
+    end
+    column :content do |post|
+      raw(post.content.truncate(50))
+    end
+    column :created_at
+    actions
+  end
+
+  show do
+    attributes_table do
+      row :title
+      row :status
+      row :post_type
+      row "作者" do |post|
+        post.user.name
+      end
+      row :cover do |post|
+        image_tag post.cover.url
+      end
+      row :content do |post|
+        raw(post.content)
+      end
+      row :created_at
+      row :updated_at
+      row :tag do |post|
+        table_for post.tags do
+          column :name_zh do |tag|
+            link_to tag.name_zh, [:admin, tag]
+          end
+        end
+      end
+    end
+  end
+
   form do |f|
-    f.inputs t("active_admin.jobs.job_info") do
+    f.inputs "文章" do
       f.input :title
       f.input :cover, as: :file, hint: f.template.image_tag(f.object.cover.url(:thumb))
       f.input :cover_cache, as: :hidden
