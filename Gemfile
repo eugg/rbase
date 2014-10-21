@@ -24,6 +24,7 @@ group :test, :development do
   gem "simplecov", require: false
 end
 
+gem "friendly_id", "~> 5.0.0"
 gem "dalli"
 gem "kgio"
 gem "babosa"
