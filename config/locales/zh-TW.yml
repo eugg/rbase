@@ -1,4 +1,34 @@
 zh-TW:
+  activerecord:
+    models:
+      post: 文章
+      tag: 標簽
+      user_social: User社群資料
+      user: 使用者
+    attributes:
+      post:
+        title: 標題
+        content: 內容
+        status: 發佈狀態
+        post_type: 文章類型
+        cover: 封面圖片
+        slug: 網址
+        created_at: 發佈時間
+        updated_at: 更新時間
+        user: 作者
+        tag: 標簽
+      tag:
+        name_zh: 中文名稱
+        name_en: 英文名稱
+        tag_type: 標簽類型
+        slug: 網址
+        created_at: 發佈時間
+        updated_at: 更新時間
+        post: 文章
+      user:
+        name: 名稱
+        post: 文章
+        created_at: 註冊時間
   date:
     abbr_day_names:
     - 日

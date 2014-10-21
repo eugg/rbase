@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+  default_scope { order(created_at: :desc) }
+
   extend FriendlyId
   friendly_id :slug_candidates, use: [:slugged, :finders]
 
