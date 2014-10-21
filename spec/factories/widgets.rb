@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :widget do
-    title "MyString"
-    content "MyText"
-    widget_type 1
-    link "MyString"
+    title Faker::Job.title
+    content Faker::Lorem.paragraph
+    widget_type Widget.widget_types.keys.sample
+    link Faker::Internet.http_url
+    order 1
   end
 end
