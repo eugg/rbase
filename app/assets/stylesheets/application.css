@@ -14,4 +14,19 @@
  *= require redactor-rails
  *= require_tree .
  *= require_self
+ *= stub active_admin
  */
+.fb_iframe_widget,
+.fb_iframe_widget span,
+.fb_iframe_widget span iframe[style] {
+  min-width: 100% !important;
+  width: 100% !important;
+}
+
+form.post_search{
+  width: 100%;
+}
+
+form.post_search .form-control{
+  width: 80%;
+}

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_search
   protect_from_forgery with: :exception
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -11,8 +12,12 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     unless current_user.try(:admin?)
-      redirect_to new_user_session_path, notice: "你不是管理者"
+      raise ActionController::RoutingError.new('Not Found')
     end
+  end
+
+  def set_search
+    @search = Post.search(params[:q])
   end
 
   protected

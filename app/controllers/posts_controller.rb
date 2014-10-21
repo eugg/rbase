@@ -1,71 +1,26 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
-  # GET /posts
-  # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.posts.publish.page params[:page]
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
+    @post = set_post
   end
 
-  # GET /posts/new
-  def new
-    @post = Post.new
-  end
-
-  # GET /posts/1/edit
-  def edit
-    authorize @post
-  end
-
-  # POST /posts
-  # POST /posts.json
-  def create
-    @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
-  def update
-    authorize @post
-    if @post.update(post_params)
-      redirect_to @post
-    else
-      render :edit
-    end
-  end
-
-  # DELETE /posts/1
-  # DELETE /posts/1.json
-  def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
-    end
+  def search
+    @heading = "搜尋結果"
+    @sub_heading = params[:q][:title_cont]
+    @posts = @search.result.page params[:page]
+    render :index
   end
 
   private
 
   def set_post
-    @post = Post.find(params[:id])
+    Post.find(params[:id])
   end
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :user_id, :cover, :post_type, :status)
   end
 end

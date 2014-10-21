@@ -11,51 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140921051926) do
+ActiveRecord::Schema.define(version: 20141018054022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_admin_comments", force: true do |t|
-    t.string   "namespace"
-    t.text     "body"
-    t.string   "resource_id",   null: false
-    t.string   "resource_type", null: false
-    t.integer  "author_id"
-    t.string   "author_type"
+  create_table "post_relations", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "projects", force: true do |t|
-    t.integer  "owner_id"
-    t.string   "title"
-    t.text     "summary"
-    t.text     "content"
-    t.text     "promise"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.integer  "status",           default: 0
-    t.decimal  "money_goal",       default: 0.0
-    t.decimal  "money_pledged",    default: 0.0
-    t.string   "video_id"
-    t.string   "avatar"
-    t.string   "fb_fanpage"
-    t.string   "preview_hash"
-    t.boolean  "no_return_option", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "status"
+    t.integer  "post_type"
+    t.string   "cover"
   end
 
   create_table "redactor_assets", force: true do |t|
@@ -84,6 +60,14 @@ ActiveRecord::Schema.define(version: 20140921051926) do
 
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string   "name_zh"
+    t.string   "name_en"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tag_type"
+  end
 
   create_table "user_socials", force: true do |t|
     t.string   "provider"

@@ -2,7 +2,10 @@
 
 FactoryGirl.define do
   factory :post do
-    title "MyString"
-    content "MyText"
+    title Faker::Job.title
+    content Faker::Lorem.paragraph
+    status Post.statuses.keys.sample
+    post_type Post.post_types.keys.sample
+    user
   end
 end

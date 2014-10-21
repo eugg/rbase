@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe UserSocial, type: :model do
 
-  subject { create(:user_social) }
+  let(:user_social) { create(:user_social) }
 
   describe "validation test" do
     it { should validate_presence_of :provider }
