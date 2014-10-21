@@ -48,9 +48,8 @@
       <% if widget.link? %>
         <div class="fb-like-box" data-href="<%= widget.link %>" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
       <% else %>
-        <div class="fb-like-box" data-href="<%= request.host %>" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
+        <div class="fb-like-box" data-href="http://<%= request.host %>" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="true"></div>
       <% end %>
-      
     </div>
     <% end %>
   <% end %>
