@@ -14,6 +14,17 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def rss
+    @rss_info = {
+      title: "Rbase",
+      description: "Test Test"
+    }
+    @posts = Post.all.order(created_at: :asc).limit(10).includes(:user, :tags)
+    respond_to do |format|
+      format.xml { render :rss }
+    end
+  end
+
   private
 
   def set_post
