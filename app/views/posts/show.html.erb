@@ -1,3 +1,12 @@
+<% set_meta_tags title: "#{@post.title}",
+                description: "#{@post.content.truncate(100)}",
+                keywords: "#{@post.title}  #{@post.tags.first.name_zh}",
+                canonical: "#{post_url(@post)}",
+                og: {
+                  title: "#{@post.title}",
+                  description: "#{raw(@post.content.truncate(100))}",
+                  imgae: "#{@post.cover.url}"
+                } %>
 <div class="post-content">
   <h1>Blog Post Title</h1>
 
