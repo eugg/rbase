@@ -34,7 +34,7 @@ zh-TW:
         title: 標題
         content: 內容
         widget_type: 類型
-        link: 標題或widget連結
+        link: 連結或地址
         order: 順序
         created_at: 發佈時間
         updated_at: 更新時間
