@@ -1,9 +1,11 @@
-class PostPolicy
-  attr_reader :user, :post
+class PostPolicy < ApplicationPolicy
 
-  def initialize(user, post)
-    @user = user
-    @post = post
+  def create?
+    user.admin?
+  end
+
+  def new?
+    create?
   end
 
   def update?
@@ -12,5 +14,22 @@ class PostPolicy
 
   def edit?
     update?
+  end
+
+  def destroy?
+    user.admin?
+  end
+
+  class Scope
+    attr_reader :user, :scope
+
+    def initialize(user, scope)
+      @user = user
+      @scope = scope
+    end
+
+    def resolve
+      scope
+    end
   end
 end
