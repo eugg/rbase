@@ -37,6 +37,7 @@ gem "pry-rails"
 gem "rollbar"
 gem "awesome_print", require: false
 gem "omniauth-facebook"
+gem "fb_graph"
 gem "omniauth-google-oauth2"
 gem "omniauth-weibo-oauth2"
 gem "activeadmin", github: "gregbell/active_admin"

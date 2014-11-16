@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount RedactorRails::Engine => "/redactor_rails"
   
-  root "posts#index"
+  root "friends#index"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks",
                                     registrations: "users/registrations",
@@ -12,6 +12,13 @@ Rails.application.routes.draw do
     collection do
       get :search
       get :rss
+    end
+  end
+
+
+  resources :friends do
+    member do
+      post :like
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

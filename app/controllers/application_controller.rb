@@ -19,8 +19,21 @@ class ApplicationController < ActionController::Base
     raise ActionController::RoutingError.new('Not Found')
   end
 
+  def redirect_to_sign_in
+    redirect_to new_user_session_path unless current_user
+  end
+
   def set_search
     @search = Post.search(params[:q])
+  end
+
+  def fetch_json_obj(url)
+    url = URI.parse(url)
+    req = Net::HTTP::Get.new(url.to_s)
+    res = Net::HTTP.start(url.host, url.port) {|http|
+      http.request(req)
+    }
+    JSON.parse(res.body)
   end
 
   protected

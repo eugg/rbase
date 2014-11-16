@@ -25,6 +25,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def password_required?
+    false
+  end
+
   def create_user_social(data)
     hash = {}
     hash["provider"] = data["provider"]

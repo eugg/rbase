@@ -1,0 +1,15 @@
+<div class="row">
+  <% @user.friends.each do |friend| %>
+  <div class="col-sm-6 col-md-3">  
+    <div class="thumbnail">
+      <%= image_tag friend.picture, class: "photo" %>
+      <div class="caption">
+        <%= link_to "https://www.facebook.com/" + friend.identifier, target: "blank" do %>
+          <h4><%= friend.name %></h4>
+        <% end %>
+        <button class="btn btn-primary likes">偷偷愛慕他</button>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
