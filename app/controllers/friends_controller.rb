@@ -9,6 +9,12 @@ class FriendsController < ApplicationController
   end
 
   def like
-    
+    if current_user.create_like_if_nil(params[:id])
+      redirect_to :back
+      flash[:notice] = "已記錄下您的心意"
+    else
+      redirect_to :back
+      flash[:alert] = "已經紀錄過囉"
+    end
   end
 end

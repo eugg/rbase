@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :user_socials, dependent: :destroy
   has_many :posts
+  has_many :likes
 
   enum gender: [:other, :male, :female]
 
@@ -29,6 +30,14 @@ class User < ActiveRecord::Base
     false
   end
 
+  def create_like_if_nil(uid)
+    unless like = likes.where(target_uid: uid).first
+      self.likes.create(target_uid: uid)
+    else
+      false
+    end
+  end
+
   def create_user_social(data)
     hash = {}
     hash["provider"] = data["provider"]
@@ -48,17 +57,5 @@ class User < ActiveRecord::Base
     else
       "other"
     end
-  end
-
-  def to_admin!
-    update_attributes(role: "admin")
-  end
-
-  def to_member!
-    update_attributes(role: "member")
-  end
-
-  def to_project_owner!
-    update_attributes(role: "project_owner")
   end
 end

@@ -7,7 +7,7 @@
         <%= link_to "https://www.facebook.com/" + friend.identifier, target: "blank" do %>
           <h4><%= friend.name %></h4>
         <% end %>
-        <button class="btn btn-primary likes">偷偷愛慕他</button>
+        <%= link_to "偷偷愛慕他", like_friend_path(friend.identifier), class: "btn btn-primary likes", method: :post %>
       </div>
     </div>
   </div>
