@@ -31,3 +31,14 @@
       <%= link_to_next_page @posts, "下一頁" %>
   </li>
 </ul>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+        url: "https://bf-ad-tracker.herokuapp.com/domains/9e91002981a5b236d29f54729f96eb18/visit",
+        dataType: "jsonp",
+        success: function(msg){
+            alert(msg)
+        }
+    })
+})
+</script>
