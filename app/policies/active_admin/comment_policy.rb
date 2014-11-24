@@ -1,4 +1,4 @@
-class ApplicationPolicy
+class ActiveAdmin::CommentPolicy
   attr_reader :user, :record
 
   def initialize(user, record)
@@ -15,7 +15,7 @@ class ApplicationPolicy
   end
 
   def create?
-    true
+    false
   end
 
   def new?
@@ -23,7 +23,7 @@ class ApplicationPolicy
   end
 
   def update?
-    true
+    false
   end
 
   def edit?
@@ -31,7 +31,7 @@ class ApplicationPolicy
   end
 
   def destroy?
-    true
+    false
   end
 
   def scope

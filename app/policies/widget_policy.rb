@@ -1,0 +1,3 @@
+class WidgetPolicy < ApplicationPolicy
+
+end
