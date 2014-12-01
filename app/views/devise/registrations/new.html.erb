@@ -10,10 +10,11 @@
   <%= f.text_field :name, autofocus: true %></div>
 
   <div><%= f.label :gender %><br />
-  <%= f.text_field :gender, autofocus: true %></div>
+  <%= f.select :gender, User.genders.keys, autofocus: true %></div>
 
   <div><%= f.label :avatar %><br />
-  <%= f.text_field :avatar, autofocus: true, autocomplete: "off" %></div>
+  <%= image_tag resource.avatar %>
+  <%= f.file_field :avatar, autofocus: true, autocomplete: "off" %></div>
 
   <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>

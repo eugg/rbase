@@ -4,11 +4,13 @@ class User < ActiveRecord::Base
   acts_as_paranoid
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-         :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :weibo]
+         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
 
   has_many :user_socials, dependent: :destroy
   has_many :posts
   has_many :likes
+
+  mount_uploader :avatar, AvatarUploader
 
   enum gender: [:other, :male, :female]
   enum role: [:member, :admin]
@@ -55,9 +57,9 @@ class User < ActiveRecord::Base
   end
 
   def self.generalize_gender(gender)
-    if gender == "m"
+    if gender == "m" || gender == "male"
       "male"
-    elsif gender == "f"
+    elsif gender == "f" || gender == "female"
       "female"
     else
       "other"
