@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   mount RedactorRails::Engine => "/redactor_rails"
   
-  root "friends#index"
+  root "match#index"
 
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks",
                                     registrations: "users/registrations",
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :friends do
+  resources :match do
     member do
       post :like
     end

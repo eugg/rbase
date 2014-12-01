@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
   has_many :likes
 
   enum gender: [:other, :male, :female]
+  enum role: [:member, :admin]
+  enum status: [:publish, :unpublish]
 
-  enum role: [:member, :project_owner, :admin]
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -30,9 +31,13 @@ class User < ActiveRecord::Base
     false
   end
 
-  def create_like_if_nil(uid)
-    unless like = likes.where(target_uid: uid).first
-      self.likes.create(target_uid: uid)
+  def get_all_likes_me
+    Like.where(target_uid: self.id).map { |like| like.liker }
+  end
+
+  def create_like_if_nil(id)
+    unless like = likes.where(target_uid: id).first
+      self.likes.create(target_uid: id)
     else
       false
     end

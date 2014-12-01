@@ -1,0 +1,15 @@
+<div class="row">
+  <% @users.each do |user| %>
+  <div class="col-sm-6 col-md-3">  
+    <div class="thumbnail">
+      <%= image_tag user.avatar, class: "photo" %>
+      <div class="caption">
+        <%= link_to match_path(user), target: "blank" do %>
+          <h4><%= user.name %></h4>
+        <% end %>
+        <%= link_to "偷偷愛慕他", like_match_path(user), class: "btn btn-primary likes", method: :post %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
