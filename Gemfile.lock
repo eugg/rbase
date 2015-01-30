@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/radar/paranoia.git
+  revision: 099e18dd9e5db1a5234f1f78436f8159b780f95d
+  branch: rails4
+  specs:
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
+
+GIT
   remote: git://github.com/gregbell/active_admin.git
   revision: ffa68b335c87dcf485aab0107c245565f4d2dbd8
   specs:
@@ -14,14 +22,6 @@ GIT
       rails (>= 3.2, < 4.2)
       ransack (~> 1.0)
       sass-rails
-
-GIT
-  remote: git://github.com/radar/paranoia.git
-  revision: 099e18dd9e5db1a5234f1f78436f8159b780f95d
-  branch: rails4
-  specs:
-    paranoia (2.0.2)
-      activerecord (~> 4.0)
 
 GIT
   remote: https://github.com/thoughtbot/shoulda-matchers.git
